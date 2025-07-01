@@ -1,0 +1,13 @@
+/* Utility classes and animations */
+.ripple {
+    /* Ripple animation */
+}
+
+@keyframes float {
+    /* Bubble animation */
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+    /* Mobile styles */
+}
