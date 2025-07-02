@@ -1,5 +1,5 @@
 # Rimjhim
 Experience the Sounds of Bengal
 
-## Acknoledgement
+## Acknowledgements
 https://github.com/theoricher/Simple-Maintenance-Page.git
