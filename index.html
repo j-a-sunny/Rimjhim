@@ -1,122 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rimjhim - Bengali Ambient Soundscape</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
     <!-- Floating bubbles background -->
     <div class="bubbles" id="bubbles"></div>
-    
+
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
-        <div class="logo">
-            <i class="fas fa-cloud-rain logo-icon"></i>
-            <div class="logo-text">Rimjhim</div>
+      <div class="logo">
+        <i class="fas fa-cloud-rain logo-icon"></i>
+        <div class="logo-text">Rimjhim</div>
+      </div>
+
+      <!-- Desktop filters and search -->
+      <div class="nav-filters">
+        <div class="search-container">
+          <i class="fas fa-search"></i>
+          <input type="text" id="search-input" placeholder="Search sounds..." />
         </div>
-        
-        <!-- Desktop filters and search -->
-        <div class="nav-filters">
-            <div class="search-container">
-                <i class="fas fa-search"></i>
-                <input type="text" id="search-input" placeholder="Search sounds...">
+
+        <div class="filter-dropdown">
+          <button class="filter-btn">
+            <i class="fas fa-filter"></i>
+            Category
+          </button>
+          <div class="filter-menu" id="filter-menu">
+            <div class="filter-option active" data-category="all">
+              All Sounds
             </div>
-            
-            <div class="filter-dropdown">
-                <button class="filter-btn">
-                    <i class="fas fa-filter"></i>
-                    Category
-                </button>
-                <div class="filter-menu" id="filter-menu">
-                    <div class="filter-option active" data-category="all">All Sounds</div>
-                    <div class="filter-option" data-category="weather">Weather</div>
-                    <div class="filter-option" data-category="nature">Nature</div>
-                    <div class="filter-option" data-category="water">Water</div>
-                    <div class="filter-option" data-category="village">Village</div>
-                </div>
-            </div>
+            <div class="filter-option" data-category="weather">Weather</div>
+            <div class="filter-option" data-category="nature">Nature</div>
+            <div class="filter-option" data-category="water">Water</div>
+            <div class="filter-option" data-category="village">Village</div>
+          </div>
         </div>
-        
-        <!-- Desktop master controls -->
-        <div class="master-controls">
-            <button class="master-play" id="master-play">
-                <i class="fas fa-play"></i>
-            </button>
-            <input type="range" min="0" max="100" value="70" class="master-volume" id="master-volume">
-            <button class="theme-toggle" id="theme-toggle">
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
-        
-        <!-- Mobile menu toggle -->
-        <button class="menu-toggle theme-toggle">
-            <i class="fas fa-bars"></i>
+      </div>
+
+      <!-- Desktop master controls -->
+      <div class="master-controls">
+        <button class="master-play" id="master-play">
+          <i class="fas fa-play"></i>
         </button>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value="70"
+          class="master-volume"
+          id="master-volume"
+        />
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+
+      <!-- Mobile menu toggle -->
+      <button class="menu-toggle theme-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
     </nav>
-    
+
     <!-- Hero Banner -->
     <div class="hero-banner">
-        <h1 class="hero-title">Experience the Sounds of Bengal</h1>
-        <p class="hero-subtitle">Immerse yourself in the calming ambient sounds of rivers, rains, and nature</p>
+      <h1 class="hero-title">Experience the Sounds of Bengal</h1>
+      <p class="hero-subtitle">
+        Immerse yourself in the calming ambient sounds of rivers, rains, and
+        nature
+      </p>
     </div>
-    
+
     <!-- Sound Grid -->
     <div class="container">
-        <div class="sound-grid" id="sound-grid">
-            <!-- Sound cards will be dynamically added here -->
-        </div>
+      <div class="sound-grid" id="sound-grid">
+        <!-- Sound cards will be dynamically added here -->
+      </div>
     </div>
-    
+
     <!-- Mobile floating controls -->
     <div class="floating-controls" id="floating-controls">
-        <div class="mobile-controls">
-            <button class="mobile-play" id="mobile-play">
-                <i class="fas fa-play"></i>
-            </button>
-            <input type="range" min="0" max="100" value="70" class="mobile-volume" id="mobile-volume">
-        </div>
+      <div class="mobile-controls">
+        <button class="mobile-play" id="mobile-play">
+          <i class="fas fa-play"></i>
+        </button>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value="70"
+          class="mobile-volume"
+          id="mobile-volume"
+        />
+      </div>
     </div>
-    
+
     <!-- Footer -->
     <footer>
-        <div class="footer-wave"></div>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <i class="fas fa-cloud-rain"></i> Rimjhim
-            </div>
-            
-            <div class="footer-links">
-                <a href="#" class="footer-link">About</a>
-                <a href="#" class="footer-link">Contact</a>
-                <a href="#" class="footer-link">Privacy Policy</a>
-                <a href="#" class="footer-link">Terms of Use</a>
-                <a href="#" class="footer-link">Contribute</a>
-            </div>
-            
-            <div class="footer-info">
-                <div class="info-column">
-                    <h3>About Rimjhim</h3>
-                    <p>Experience the soothing sounds of Bengal's nature for relaxation, meditation, and focus.</p>
-                    <p>প্রকৃতির সুরে শান্তি - Peace through nature's sounds</p>
-                </div>
-                
-                <div class="info-column">
-                    <h3>Contact</h3>
-                    <p>Email: contact@rimjhim.com</p>
-                    <p>Dhaka, Bangladesh</p>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                © 2023 Rimjhim Ambient Soundscape | Crafted with ❤️ in Bangladesh
-            </div>
+      <div class="footer-wave"></div>
+      <div class="footer-content">
+        <div class="footer-logo"><i class="fas fa-cloud-rain"></i> Rimjhim</div>
+
+        <div class="footer-links">
+          <a href="#" class="footer-link">About</a>
+          <a href="#" class="footer-link">Contact</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Use</a>
+          <a href="#" class="footer-link">Contribute</a>
         </div>
+
+        <div class="footer-info">
+          <div class="info-column">
+            <h3>About Rimjhim</h3>
+            <p>
+              Experience the soothing sounds of Bengal's nature for relaxation,
+              meditation, and focus.
+            </p>
+            <p>প্রকৃতির সুরে শান্তি - Peace through nature's sounds</p>
+          </div>
+
+          <div class="info-column">
+            <h3>Contact</h3>
+            <p>Email: contact@rimjhim.com</p>
+            <p>Dhaka, Bangladesh</p>
+          </div>
+        </div>
+
+        <div class="copyright">
+          © 2023 Rimjhim Ambient Soundscape | Crafted with ❤️ in Bangladesh
+        </div>
+      </div>
     </footer>
 
     <script src="scripts/main.js"></script>
-</body>
+  </body>
 </html>
