@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rimjhim Navbar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e0f2f7;
+      color: #333;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background-color: #d7eef7;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .logo span {
+      font-size: 1.5rem;
+    }
+
+    .search-container {
+      display: flex;
+      flex: 1;
+      margin: 0 20px;
+      background-color: #fff;
+      padding: 10px 16px;
+      border-radius: 9999px;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      
+    }
+
+    .search-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .chip-container {
+      display: flex;
+      gap: 10px;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .chip {
+      background-color: #e4f1f6;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .chip.selected {
+      background-color: #6fb9d4;
+      color: #fff;
+    }
+
+    .mobile-filter-button {
+      display: none;
+      background-color: #b5deec;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background-color 0.4s ease-in-out;
+    }
+
+    .mobile-filters {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      transition: max-height 0.4s ease-in-out;
+      overflow: hidden;
+    }
+
+    .moon-icon {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .chip-container {
+        display: none;
+      }
+
+      .mobile-filter-button {
+        display: inline-block;
+      }
+
+      .search-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+
+      .mobile-filters.show {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <!-- Logo -->
+    <div class="logo">
+      <span>🌧️</span>
+      <span>Rimjhim</span>
+    </div>
+
+    <!-- Search and Filters -->
+    <div class="search-container">
+      <div style="display: flex; align-items: center; gap: 8px; flex: 1;">
+        <span style="color: #7bbdd3;">🔍</span>
+        <input type="text" class="search-input" placeholder="Search sounds..." />
+      </div>
+
+      <!-- Filter Chips (Desktop) -->
+      <div class="chip-container">
+        <button class="chip selected" data-filter="All">All</button>
+        <button class="chip" data-filter="Weather">Weather</button>
+        <button class="chip" data-filter="Nature">Nature</button>
+        <button class="chip" data-filter="Water">Water</button>
+        <button class="chip" data-filter="Village">Village</button>
+      </div>
+
+      <!-- Filter Toggle (Mobile) -->
+      <button class="mobile-filter-button" id="filterToggle">Filter</button>
+    </div>
+
+    <!-- Dark Mode Icon -->
+    <div class="moon-icon">🌙</div>
+  </nav>
+
+  <!-- Mobile Filters -->
+  <div class="mobile-filters" id="mobileFilters">
+    <button class="chip selected" data-filter="All">All</button>
+    <button class="chip" data-filter="Weather">Weather</button>
+    <button class="chip" data-filter="Nature">Nature</button>
+    <button class="chip" data-filter="Water">Water</button>
+    <button class="chip" data-filter="Village">Village</button>
+  </div>
+
+  <script>
+    // Handle filter chip selection
+    function updateSelection(clickedChip) {
+      const allChips = document.querySelectorAll('.chip');
+      allChips.forEach(chip => chip.classList.remove('selected'));
+      clickedChip.classList.add('selected');
+      console.log('Selected filter:', clickedChip.dataset.filter);
+    }
+
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => updateSelection(chip));
+    });
+
+    // Toggle mobile filters
+    const filterToggle = document.getElementById('filterToggle');
+    const mobileFilters = document.getElementById('mobileFilters');
+
+    filterToggle.addEventListener('click', () => {
+      mobileFilters.classList.toggle('show');
+    });
+  </script>
+
+</body>
+</html>
