@@ -59,7 +59,7 @@
                 description: 'Distant traffic and urban atmosphere', 
                 category: 'urban',
                 duration: '4:20',
-                path: '.assets/sounds/city.ogg'
+                path: './assets/sounds/city.ogg'
             },
             { 
                 id: 'fireplace', 

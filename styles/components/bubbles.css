@@ -1,28 +1,47 @@
+        
+        /* ! THIS ALSO EFFECTS THE BG */
         /* Bubbles background */
         .bubbles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          overflow: hidden;
+          background: linear-gradient(135deg, #e6f7ff 0%, #d0e8e6 100%);
+
+        }
+
+        .dark-mode .bubbles {
+          background: linear-gradient(135deg, #152a32 0%, #0b1a1f 100%);
         }
 
         .bubble {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(122, 169, 183, 0.15);
-            animation: float 20s infinite ease-in-out;
+          position: absolute;
+          border-radius: 50%;
+          background: rgba(122, 169, 183, 0.15);
+          animation: float 20s infinite ease-in-out;
         }
 
         .dark-mode .bubble {
-            background: rgba(76, 201, 240, 0.1);
+          background: rgba(76, 201, 240, 0.1);
         }
 
         @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(40px, 30px) rotate(120deg); }
-            66% { transform: translate(-30px, 40px) rotate(240deg); }
-            100% { transform: translate(0, 0) rotate(360deg); }
+          0% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+
+          33% {
+            transform: translate(40px, 30px) rotate(120deg);
+          }
+
+          66% {
+            transform: translate(-30px, 40px) rotate(240deg);
+          }
+
+          100% {
+            transform: translate(0, 0) rotate(360deg);
+          }
         }
