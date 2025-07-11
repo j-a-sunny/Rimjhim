@@ -52,6 +52,10 @@
             border-radius: 50%;
             background: var(--primary);
             cursor: pointer;
+            transition: var(--transition);
+        }
+        .master-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
         }
 
         .active-sounds {
@@ -72,7 +76,7 @@
             gap: 10px;
             font-size: 0.95rem;
             font-weight: 500;
-            box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
         }
 
         .active-sound-chip button {

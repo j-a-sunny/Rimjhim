@@ -9,7 +9,7 @@
 /* ! DO NOT TOUCH IF NOT NECESSERY */
 /* ! IF ANY VARIABLES NEED TO BE CHANGED, CONTACT OTHER MAINTAINERS/CONTRIBUTORS BEFORE CHANGING */
         :root {
-            --primary: #4361ee;
+            --primary: #7aa9b7;
             --primary-light: #4895ef;
             --secondary: #3f37c9;
             --accent: #f72585;
@@ -24,7 +24,7 @@
         }
 
         .dark-mode {
-            --primary: #4cc9f0;
+            --primary: #7aa9b7;
             --primary-light: #4895ef;
             --secondary: #3a0ca3;
             --light: #121212;
@@ -104,6 +104,10 @@
         @media (max-width: 480px) {
             .hero-title {
                 font-size: 2rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 20px;
             }
             
             .sound-grid {
