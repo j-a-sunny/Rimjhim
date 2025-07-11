@@ -59,7 +59,7 @@
                 description: 'Distant traffic and urban atmosphere', 
                 category: 'urban',
                 duration: '4:20',
-                path: 'https://assets.mixkit.co/sfx/preview/mixkit-city-traffic-outdoor-2469.mp3'
+                path: '.assets/sounds/city.ogg'
             },
             { 
                 id: 'fireplace', 
@@ -67,7 +67,7 @@
                 description: 'Warm fireplace sounds for cozy evenings', 
                 category: 'nature',
                 duration: '5:10',
-                path: 'https://assets.mixkit.co/sfx/preview/mixkit-crackling-fireplace-loop-1240.mp3'
+                path: './assets/sounds/fireplace.ogg'
             },
             { 
                 id: 'rain', 
@@ -75,7 +75,7 @@
                 description: 'Soft rainfall on leaves and rooftops', 
                 category: 'weather',
                 duration: '6:15',
-                path: 'https://assets.mixkit.co/sfx/preview/mixkit-rain-loop-1241.mp3'
+                path: './assets/sounds/rain.ogg'
             },
             { 
                 id: 'stream', 
@@ -83,7 +83,7 @@
                 description: 'Flowing water in a mountain creek', 
                 category: 'nature',
                 duration: '4:50',
-                path: 'https://assets.mixkit.co/sfx/preview/mixkit-mountain-stream-loop-1244.mp3'
+                path: './assets/sounds/stream.ogg'
             },
             { 
                 id: 'train', 
@@ -91,7 +91,7 @@
                 description: 'Rhythmic train sounds for focus', 
                 category: 'urban',
                 duration: '7:05',
-                path: 'https://assets.mixkit.co/sfx/preview/mixkit-train-passing-by-1247.mp3'
+                path: './assets/sounds/train.ogg'
             },
             { 
                 id: 'white-noise', 
@@ -99,7 +99,7 @@
                 description: 'Neutral background sound for concentration', 
                 category: 'noise',
                 duration: '8:00',
-                path: 'https://assets.mixkit.co/sfx/preview/mixkit-wind-in-the-trees-1243.mp3'
+                path: './assets/sounds/white-noise.ogg'
             },
             { 
                 id: 'boat', 
@@ -107,7 +107,7 @@
                 description: 'Calming waves against a boat', 
                 category: 'nature',
                 duration: '5:30',
-                path: 'https://assets.mixkit.co/sfx/preview/mixkit-ocean-waves-loop-1245.mp3'
+                path: './assets/sounds/boat.ogg'
             },
             { 
                 id: 'coffee-shop', 
@@ -115,7 +115,7 @@
                 description: 'Subtle chatter and espresso sounds', 
                 category: 'urban',
                 duration: '4:45',
-                path: 'https://assets.mixkit.co/sfx/preview/mixkit-restaurant-crowd-talking-ambience-444.mp3'
+                path: './assets/sounds/coffee-shop.ogg'
             },
             { 
                 id: 'pink-noise', 
@@ -123,7 +123,7 @@
                 description: 'Soothing frequency for relaxation', 
                 category: 'noise',
                 duration: '6:30',
-                path: 'https://assets.mixkit.co/sfx/preview/mixkit-wind-in-the-trees-1243.mp3'
+                path: './assets/sounds/pink-noise.ogg'
             },
             { 
                 id: 'storm', 
@@ -131,7 +131,7 @@
                 description: 'Powerful thunder and heavy rain', 
                 category: 'weather',
                 duration: '5:55',
-                path: 'https://assets.mixkit.co/sfx/preview/mixkit-thunder-ambience-1246.mp3'
+                path: './assets/sounds/storm.ogg'
             },
             { 
                 id: 'summer-night', 
@@ -139,7 +139,7 @@
                 description: 'Crickets and night sounds in the countryside', 
                 category: 'nature',
                 duration: '6:10',
-                path: 'https://assets.mixkit.co/sfx/preview/mixkit-night-crickets-and-insects-in-wild-ambience-1254.mp3'
+                path: './assets/sounds/summer-night.ogg'
             },
             { 
                 id: 'waves', 
@@ -147,7 +147,7 @@
                 description: 'Calming waves on the beach', 
                 category: 'nature',
                 duration: '7:20',
-                path: 'https://assets.mixkit.co/sfx/preview/mixkit-ocean-waves-loop-1245.mp3'
+                path: './assets/sounds/waves.ogg'
             },
             { 
                 id: 'wind', 
@@ -155,7 +155,7 @@
                 description: 'Gentle breeze through forest leaves', 
                 category: 'weather',
                 duration: '4:25',
-                path: 'https://assets.mixkit.co/sfx/preview/mixkit-wind-in-the-trees-1243.mp3'
+                path: './assets/sounds/wind.ogg'
             }
         ];
         

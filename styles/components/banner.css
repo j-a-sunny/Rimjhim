@@ -1,0 +1,33 @@
+        .hero-banner {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .dark-mode .hero-subtitle {
+            color: var(--gray);
+        }

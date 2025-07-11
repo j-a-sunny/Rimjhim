@@ -1,0 +1,97 @@
+        .mixer-controls {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-bottom: 40px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .mixer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .mixer-title {
+            font-size: 1.8rem;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .mixer-title i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .master-volume {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 300px;
+        }
+
+        .master-volume i {
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+
+        .master-slider {
+            flex-grow: 1;
+            -webkit-appearance: none;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--light-gray);
+            outline: none;
+        }
+
+        .master-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+        }
+
+        .active-sounds {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            min-height: 60px;
+        }
+
+        .active-sound-chip {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+        }
+
+        .active-sound-chip button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .active-sound-chip button:hover {
+            transform: scale(1.2);
+        }
+
+        .no-sounds-message {
+            color: var(--gray);
+            font-style: italic;
+            padding: 15px 0;
+        }

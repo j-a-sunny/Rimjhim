@@ -1,0 +1,82 @@
+        .filter-bar {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            margin-bottom: 40px;
+            position: sticky;
+            top: 20px;
+            z-index: 10;
+            transition: var(--transition);
+        }
+
+        .filter-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            background: var(--light-gray);
+            border-radius: 30px;
+            padding: 0 20px;
+            max-width: 500px;
+            transition: var(--transition);
+        }
+
+        .search-container:focus-within {
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.3);
+        }
+
+        .search-container input {
+            flex-grow: 1;
+            background: transparent;
+            border: none;
+            padding: 15px 10px;
+            font-size: 16px;
+            outline: none;
+            color: var(--dark);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-container i {
+            color: var(--gray);
+            font-size: 18px;
+        }
+
+        .category-filter {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .category-btn {
+            background: var(--light-gray);
+            border: none;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .category-btn i {
+            font-size: 1.1rem;
+        }

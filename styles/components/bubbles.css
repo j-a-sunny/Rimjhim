@@ -1,26 +1,28 @@
-/* bubbles.css */
-/* Styles for animated bubbles in the background */
-/* !I don't know how this works. I just copied it from somewhere i don't even remember... */
-.bubbles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
-}
+        /* Bubbles background */
+        .bubbles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
 
-.bubble {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(122, 169, 183, 0.15);
-  animation: float 20s infinite ease-in-out;
-}
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(122, 169, 183, 0.15);
+            animation: float 20s infinite ease-in-out;
+        }
 
-@keyframes float {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(40px, 30px) rotate(120deg); }
-  66% { transform: translate(-30px, 40px) rotate(240deg); }
-  100% { transform: translate(0, 0) rotate(360deg); }
-}
+        .dark-mode .bubble {
+            background: rgba(76, 201, 240, 0.1);
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(40px, 30px) rotate(120deg); }
+            66% { transform: translate(-30px, 40px) rotate(240deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
