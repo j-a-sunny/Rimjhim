@@ -1,189 +1,1048 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rimjhim Navbar</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #e0f2f7;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambient Sound Mixer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-light: #4895ef;
+            --secondary: #3f37c9;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --card-bg: #ffffff;
+            --card-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            --border-radius: 16px;
+            --transition: all 0.3s ease;
+        }
 
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 20px;
-      background-color: #d7eef7;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
+        .dark-mode {
+            --primary: #4cc9f0;
+            --primary-light: #4895ef;
+            --secondary: #3a0ca3;
+            --light: #121212;
+            --dark: #f8f9fa;
+            --gray: #adb5bd;
+            --light-gray: #2d2d2d;
+            --card-bg: #1e1e1e;
+            --card-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .logo span {
-      font-size: 1.5rem;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 100%);
+            color: var(--dark);
+            min-height: 100vh;
+            padding: 20px;
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
 
-    .search-container {
-      display: flex;
-      flex: 1;
-      margin: 0 20px;
-      background-color: #fff;
-      padding: 10px 16px;
-      border-radius: 9999px;
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      
-    }
+        .dark-mode body {
+            background: linear-gradient(135deg, #0a081d 0%, #1c1840 100%);
+            color: var(--dark);
+        }
 
-    .search-input {
-      flex: 1;
-      border: none;
-      outline: none;
-      font-size: 1rem;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
 
-    .chip-container {
-      display: flex;
-      gap: 10px;
-      transition: all 0.4s ease-in-out;
-    }
+        /* Bubbles background */
+        .bubbles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
 
-    .chip {
-      background-color: #e4f1f6;
-      border: none;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.4s ease-in-out;
-    }
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(122, 169, 183, 0.15);
+            animation: float 20s infinite ease-in-out;
+        }
 
-    .chip.selected {
-      background-color: #6fb9d4;
-      color: #fff;
-    }
+        .dark-mode .bubble {
+            background: rgba(76, 201, 240, 0.1);
+        }
 
-    .mobile-filter-button {
-      display: none;
-      background-color: #b5deec;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: background-color 0.4s ease-in-out;
-    }
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(40px, 30px) rotate(120deg); }
+            66% { transform: translate(-30px, 40px) rotate(240deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
 
-    .mobile-filters {
-      display: none;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 10px;
-      transition: max-height 0.4s ease-in-out;
-      overflow: hidden;
-    }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
 
-    .moon-icon {
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    @media (max-width: 768px) {
-      .chip-container {
-        display: none;
-      }
+        .logo i {
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
 
-      .mobile-filter-button {
-        display: inline-block;
-      }
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 2.2rem;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
 
-      .search-container {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-      }
+        .theme-toggle {
+            background: var(--card-bg);
+            border: none;
+            border-radius: 30px;
+            padding: 12px 24px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: var(--card-shadow);
+            color: var(--dark);
+            transition: var(--transition);
+        }
 
-      .mobile-filters.show {
-        display: flex;
-      }
-    }
-  </style>
+        .theme-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero-banner {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .dark-mode .hero-subtitle {
+            color: var(--gray);
+        }
+
+        .filter-bar {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            margin-bottom: 40px;
+            position: sticky;
+            top: 20px;
+            z-index: 10;
+            transition: var(--transition);
+        }
+
+        .filter-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            background: var(--light-gray);
+            border-radius: 30px;
+            padding: 0 20px;
+            max-width: 500px;
+            transition: var(--transition);
+        }
+
+        .search-container:focus-within {
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.3);
+        }
+
+        .search-container input {
+            flex-grow: 1;
+            background: transparent;
+            border: none;
+            padding: 15px 10px;
+            font-size: 16px;
+            outline: none;
+            color: var(--dark);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-container i {
+            color: var(--gray);
+            font-size: 18px;
+        }
+
+        .category-filter {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .category-btn {
+            background: var(--light-gray);
+            border: none;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .category-btn i {
+            font-size: 1.1rem;
+        }
+
+        .sound-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .sound-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sound-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .sound-card.active {
+            box-shadow: 0 0 0 3px var(--primary);
+        }
+
+        .card-header {
+            height: 160px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .sound-card:hover .card-image {
+            transform: scale(1.05);
+        }
+
+        .sound-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .dark-mode .sound-category {
+            background: rgba(30, 30, 30, 0.9);
+            color: var(--primary-light);
+        }
+
+        .card-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sound-title {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .sound-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        /* Modified audio player - removed progress bar and time display */
+        .audio-player {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--light-gray);
+            border-radius: 30px;
+            padding: 10px 20px;
+            transition: var(--transition);
+        }
+
+        .play-btn {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .play-btn:hover {
+            background: var(--secondary);
+            transform: scale(1.05);
+        }
+
+        .play-btn i {
+            font-size: 1.2rem;
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .volume-control i {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .volume-slider {
+            flex-grow: 1;
+            -webkit-appearance: none;
+            height: 6px;
+            border-radius: 5px;
+            background: var(--light-gray);
+            outline: none;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .volume-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .mixer-controls {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-bottom: 40px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .mixer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .mixer-title {
+            font-size: 1.8rem;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .mixer-title i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .master-volume {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 300px;
+        }
+
+        .master-volume i {
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+
+        .master-slider {
+            flex-grow: 1;
+            -webkit-appearance: none;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--light-gray);
+            outline: none;
+        }
+
+        .master-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+        }
+
+        .active-sounds {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            min-height: 60px;
+        }
+
+        .active-sound-chip {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+        }
+
+        .active-sound-chip button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .active-sound-chip button:hover {
+            transform: scale(1.2);
+        }
+
+        .no-sounds-message {
+            color: var(--gray);
+            font-style: italic;
+            padding: 15px 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--light-gray);
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .sound-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .filter-content {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .mixer-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .master-volume {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .sound-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <nav>
-    <!-- Logo -->
-    <div class="logo">
-      <span>🌧️</span>
-      <span>Rimjhim</span>
+    <!-- Bubbles background container -->
+    <div class="bubbles"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-wave-square"></i>
+                <h1>AmbientMix</h1>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+                <span>Dark Mode</span>
+            </button>
+        </header>
+        
+        <section class="hero-banner">
+            <h1 class="hero-title">Create Your Perfect Ambiance</h1>
+            <p class="hero-subtitle">Mix and match ambient sounds to create your ideal environment for relaxation, focus, or sleep. Combine nature, urban, and noise elements to craft a personalized soundscape.</p>
+        </section>
+        
+        <div class="filter-bar">
+            <div class="filter-content">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search sounds...">
+                </div>
+                
+                <div class="category-filter">
+                    <button class="category-btn active" data-category="all">
+                        <i class="fas fa-layer-group"></i>
+                        <span>All</span>
+                    </button>
+                    <button class="category-btn" data-category="nature">
+                        <i class="fas fa-tree"></i>
+                        <span>Nature</span>
+                    </button>
+                    <button class="category-btn" data-category="urban">
+                        <i class="fas fa-city"></i>
+                        <span>Urban</span>
+                    </button>
+                    <button class="category-btn" data-category="weather">
+                        <i class="fas fa-cloud-rain"></i>
+                        <span>Weather</span>
+                    </button>
+                    <button class="category-btn" data-category="noise">
+                        <i class="fas fa-sliders-h"></i>
+                        <span>Noise</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sound-grid" id="soundGrid">
+            <!-- Sound cards will be generated by JavaScript -->
+        </div>
+        
+        <div class="mixer-controls">
+            <div class="mixer-header">
+                <h2 class="mixer-title"><i class="fas fa-sliders-h"></i> Sound Mixer</h2>
+                <div class="master-volume">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" id="masterVolume" class="master-slider" min="0" max="1" step="0.01" value="0.7">
+                </div>
+            </div>
+            
+            <div id="activeSounds" class="active-sounds">
+                <div class="no-sounds-message">No sounds currently playing. Select sounds to begin mixing.</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 AmbientMix | Create your perfect sound environment</p>
+        </div>
     </div>
 
-    <!-- Search and Filters -->
-    <div class="search-container">
-      <div style="display: flex; align-items: center; gap: 8px; flex: 1;">
-        <span style="color: #7bbdd3;">🔍</span>
-        <input type="text" class="search-input" placeholder="Search sounds..." />
-      </div>
+    <script>
+        // Create bubbles function
+        function createBubbles() {
+            const container = document.querySelector('.bubbles');
+            const bubbleCount = 15;
+            
+            for (let i = 0; i < bubbleCount; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                
+                // Randomize size and position
+                const size = Math.random() * 120 + 40;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}%`;
+                bubble.style.top = `${Math.random() * 100}%`;
+                
+                // Randomize animation
+                const duration = Math.random() * 20 + 10;
+                bubble.style.animationDuration = `${duration}s`;
+                
+                container.appendChild(bubble);
+            }
+        }
 
-      <!-- Filter Chips (Desktop) -->
-      <div class="chip-container">
-        <button class="chip selected" data-filter="All">All</button>
-        <button class="chip" data-filter="Weather">Weather</button>
-        <button class="chip" data-filter="Nature">Nature</button>
-        <button class="chip" data-filter="Water">Water</button>
-        <button class="chip" data-filter="Village">Village</button>
-      </div>
-
-      <!-- Filter Toggle (Mobile) -->
-      <button class="mobile-filter-button" id="filterToggle">Filter</button>
-    </div>
-
-    <!-- Dark Mode Icon -->
-    <div class="moon-icon">🌙</div>
-  </nav>
-
-  <!-- Mobile Filters -->
-  <div class="mobile-filters" id="mobileFilters">
-    <button class="chip selected" data-filter="All">All</button>
-    <button class="chip" data-filter="Weather">Weather</button>
-    <button class="chip" data-filter="Nature">Nature</button>
-    <button class="chip" data-filter="Water">Water</button>
-    <button class="chip" data-filter="Village">Village</button>
-  </div>
-
-  <script>
-    // Handle filter chip selection
-    function updateSelection(clickedChip) {
-      const allChips = document.querySelectorAll('.chip');
-      allChips.forEach(chip => chip.classList.remove('selected'));
-      clickedChip.classList.add('selected');
-      console.log('Selected filter:', clickedChip.dataset.filter);
-    }
-
-    document.querySelectorAll('.chip').forEach(chip => {
-      chip.addEventListener('click', () => updateSelection(chip));
-    });
-
-    // Toggle mobile filters
-    const filterToggle = document.getElementById('filterToggle');
-    const mobileFilters = document.getElementById('mobileFilters');
-
-    filterToggle.addEventListener('click', () => {
-      mobileFilters.classList.toggle('show');
-    });
-  </script>
-
+        // Audio context for advanced audio control
+        let audioContext;
+        try {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        } catch (e) {
+            alert('Web Audio API is not supported in this browser');
+        }
+        
+        // Master gain node for controlling overall volume
+        const masterGain = audioContext.createGain();
+        masterGain.gain.value = 0.7;
+        masterGain.connect(audioContext.destination);
+        
+        // Currently playing sounds
+        const activeSounds = {};
+        
+        // Update master volume when slider changes
+        document.getElementById('masterVolume').addEventListener('input', function() {
+            masterGain.gain.value = parseFloat(this.value);
+        });
+        
+        // Sample sound data with categories
+        const sounds = [
+            { 
+                id: 'birds', 
+                title: 'Singing Birds', 
+                description: 'Gentle bird songs in a peaceful forest setting', 
+                category: 'nature',
+                duration: '3:45',
+                path: './assets/sounds/birds.ogg'
+            },
+            { 
+                id: 'city', 
+                title: 'City Ambience', 
+                description: 'Distant traffic and urban atmosphere', 
+                category: 'urban',
+                duration: '4:20',
+                path: 'https://assets.mixkit.co/sfx/preview/mixkit-city-traffic-outdoor-2469.mp3'
+            },
+            { 
+                id: 'fireplace', 
+                title: 'Crackling Fireplace', 
+                description: 'Warm fireplace sounds for cozy evenings', 
+                category: 'nature',
+                duration: '5:10',
+                path: 'https://assets.mixkit.co/sfx/preview/mixkit-crackling-fireplace-loop-1240.mp3'
+            },
+            { 
+                id: 'rain', 
+                title: 'Gentle Rain', 
+                description: 'Soft rainfall on leaves and rooftops', 
+                category: 'weather',
+                duration: '6:15',
+                path: 'https://assets.mixkit.co/sfx/preview/mixkit-rain-loop-1241.mp3'
+            },
+            { 
+                id: 'stream', 
+                title: 'Mountain Stream', 
+                description: 'Flowing water in a mountain creek', 
+                category: 'nature',
+                duration: '4:50',
+                path: 'https://assets.mixkit.co/sfx/preview/mixkit-mountain-stream-loop-1244.mp3'
+            },
+            { 
+                id: 'train', 
+                title: 'Train Journey', 
+                description: 'Rhythmic train sounds for focus', 
+                category: 'urban',
+                duration: '7:05',
+                path: 'https://assets.mixkit.co/sfx/preview/mixkit-train-passing-by-1247.mp3'
+            },
+            { 
+                id: 'white-noise', 
+                title: 'White Noise', 
+                description: 'Neutral background sound for concentration', 
+                category: 'noise',
+                duration: '8:00',
+                path: 'https://assets.mixkit.co/sfx/preview/mixkit-wind-in-the-trees-1243.mp3'
+            },
+            { 
+                id: 'boat', 
+                title: 'Ocean Waves', 
+                description: 'Calming waves against a boat', 
+                category: 'nature',
+                duration: '5:30',
+                path: 'https://assets.mixkit.co/sfx/preview/mixkit-ocean-waves-loop-1245.mp3'
+            },
+            { 
+                id: 'coffee-shop', 
+                title: 'Coffee Shop', 
+                description: 'Subtle chatter and espresso sounds', 
+                category: 'urban',
+                duration: '4:45',
+                path: 'https://assets.mixkit.co/sfx/preview/mixkit-restaurant-crowd-talking-ambience-444.mp3'
+            },
+            { 
+                id: 'pink-noise', 
+                title: 'Pink Noise', 
+                description: 'Soothing frequency for relaxation', 
+                category: 'noise',
+                duration: '6:30',
+                path: 'https://assets.mixkit.co/sfx/preview/mixkit-wind-in-the-trees-1243.mp3'
+            },
+            { 
+                id: 'storm', 
+                title: 'Thunderstorm', 
+                description: 'Powerful thunder and heavy rain', 
+                category: 'weather',
+                duration: '5:55',
+                path: 'https://assets.mixkit.co/sfx/preview/mixkit-thunder-ambience-1246.mp3'
+            },
+            { 
+                id: 'summer-night', 
+                title: 'Summer Night', 
+                description: 'Crickets and night sounds in the countryside', 
+                category: 'nature',
+                duration: '6:10',
+                path: 'https://assets.mixkit.co/sfx/preview/mixkit-night-crickets-and-insects-in-wild-ambience-1254.mp3'
+            },
+            { 
+                id: 'waves', 
+                title: 'Ocean Waves', 
+                description: 'Calming waves on the beach', 
+                category: 'nature',
+                duration: '7:20',
+                path: 'https://assets.mixkit.co/sfx/preview/mixkit-ocean-waves-loop-1245.mp3'
+            },
+            { 
+                id: 'wind', 
+                title: 'Wind in Trees', 
+                description: 'Gentle breeze through forest leaves', 
+                category: 'weather',
+                duration: '4:25',
+                path: 'https://assets.mixkit.co/sfx/preview/mixkit-wind-in-the-trees-1243.mp3'
+            }
+        ];
+        
+        // Image mapping for sound categories
+        const categoryImages = {
+            nature: 'https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?auto=format&fit=crop&w=600&q=80',
+            weather: 'https://images.unsplash.com/photo-1492011221367-f47e3ccd77a0?auto=format&fit=crop&w=600&q=80',
+            urban: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=600&q=80',
+            noise: 'https://images.unsplash.com/photo-1505506874110-6a7a69069a08?auto=format&fit=crop&w=600&q=80'
+        };
+        
+        // Function to generate sound cards
+        function generateSoundCards(soundList) {
+            const soundGrid = document.getElementById('soundGrid');
+            soundGrid.innerHTML = '';
+            
+            if (soundList.length === 0) {
+                soundGrid.innerHTML = '<p class="no-sounds-message">No sounds match your search. Try a different filter.</p>';
+                return;
+            }
+            
+            soundList.forEach(sound => {
+                const isActive = activeSounds[sound.id] ? 'active' : '';
+                const playIcon = activeSounds[sound.id] ? 'fa-pause' : 'fa-play';
+                
+                const card = document.createElement('div');
+                card.className = `sound-card ${isActive}`;
+                card.dataset.category = sound.category;
+                
+                card.innerHTML = `
+                    <div class="card-header">
+                        <img src="${categoryImages[sound.category]}" alt="${sound.title}" class="card-image">
+                        <span class="sound-category">${sound.category.charAt(0).toUpperCase() + sound.category.slice(1)}</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="sound-title">${sound.title}</h3>
+                        <p class="sound-description">${sound.description}</p>
+                        <div class="audio-player">
+                            <button class="play-btn" data-sound="${sound.id}">
+                                <i class="fas ${playIcon}"></i>
+                            </button>
+                            <div class="volume-control">
+                                <i class="fas fa-volume-up"></i>
+                                <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="${activeSounds[sound.id] ? activeSounds[sound.id].volume : '0.7'}" data-sound="${sound.id}">
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                soundGrid.appendChild(card);
+            });
+            
+            // Add event listeners to play buttons
+            document.querySelectorAll('.play-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const soundId = this.dataset.sound;
+                    toggleSound(soundId, this);
+                });
+            });
+            
+            // Add event listeners to volume sliders
+            document.querySelectorAll('.volume-slider').forEach(slider => {
+                slider.addEventListener('input', function() {
+                    const soundId = this.dataset.sound;
+                    if (activeSounds[soundId]) {
+                        activeSounds[soundId].gainNode.gain.value = parseFloat(this.value);
+                        activeSounds[soundId].volume = parseFloat(this.value);
+                    }
+                });
+            });
+        }
+        
+        // Function to toggle sound on/off
+        async function toggleSound(soundId, button) {
+            // If sound is already playing, stop it
+            if (activeSounds[soundId]) {
+                stopSound(soundId);
+                button.innerHTML = '<i class="fas fa-play"></i>';
+                button.closest('.sound-card').classList.remove('active');
+                return;
+            }
+            
+            // Show loading state
+            const originalHTML = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            
+            // Find the sound data
+            const soundData = sounds.find(s => s.id === soundId);
+            
+            try {
+                // Fetch the audio file
+                const response = await fetch(soundData.path);
+                const arrayBuffer = await response.arrayBuffer();
+                const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+                
+                // Create audio source and gain node
+                const source = audioContext.createBufferSource();
+                const gainNode = audioContext.createGain();
+                
+                // Configure audio nodes
+                source.buffer = audioBuffer;
+                source.loop = true;
+                gainNode.gain.value = 0.7;
+                
+                // Connect nodes: source -> gain -> master gain -> destination
+                source.connect(gainNode);
+                gainNode.connect(masterGain);
+                
+                // Start playback
+                source.start(0);
+                
+                // Store reference to active sound
+                activeSounds[soundId] = {
+                    source,
+                    gainNode,
+                    buffer: audioBuffer,
+                    volume: 0.7
+                };
+                
+                // Update UI
+                button.innerHTML = '<i class="fas fa-pause"></i>';
+                button.closest('.sound-card').classList.add('active');
+                
+                // Update active sounds display
+                updateActiveSoundsDisplay();
+            } catch (error) {
+                console.error('Error loading or playing sound:', error);
+                button.innerHTML = originalHTML;
+                alert('Failed to load sound. Please try again.');
+            }
+        }
+        
+        // Function to stop a sound
+        function stopSound(soundId) {
+            if (activeSounds[soundId]) {
+                // Stop the audio source
+                activeSounds[soundId].source.stop();
+                
+                // Remove from active sounds
+                delete activeSounds[soundId];
+                
+                // Update active sounds display
+                updateActiveSoundsDisplay();
+            }
+        }
+        
+        // Function to update active sounds display
+        function updateActiveSoundsDisplay() {
+            const activeSoundsContainer = document.getElementById('activeSounds');
+            const activeKeys = Object.keys(activeSounds);
+            
+            if (activeKeys.length === 0) {
+                activeSoundsContainer.innerHTML = '<div class="no-sounds-message">No sounds currently playing. Select sounds to begin mixing.</div>';
+                return;
+            }
+            
+            activeSoundsContainer.innerHTML = '';
+            
+            activeKeys.forEach(soundId => {
+                const soundData = sounds.find(s => s.id === soundId);
+                const chip = document.createElement('div');
+                chip.className = 'active-sound-chip';
+                chip.innerHTML = `
+                    ${soundData.title}
+                    <button onclick="stopSoundFromChip('${soundId}')">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                activeSoundsContainer.appendChild(chip);
+            });
+        }
+        
+        // Function to stop sound from chip
+        function stopSoundFromChip(soundId) {
+            const button = document.querySelector(`.play-btn[data-sound="${soundId}"]`);
+            if (button) {
+                button.innerHTML = '<i class="fas fa-play"></i>';
+                button.closest('.sound-card').classList.remove('active');
+            }
+            stopSound(soundId);
+            generateSoundCards(sounds);
+        }
+        
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            const icon = this.querySelector('i');
+            const text = this.querySelector('span');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                icon.className = 'fas fa-sun';
+                text.textContent = 'Light Mode';
+            } else {
+                icon.className = 'fas fa-moon';
+                text.textContent = 'Dark Mode';
+            }
+        });
+        
+        // Filter functionality
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const searchInput = document.getElementById('searchInput');
+        
+        categoryButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active state
+                categoryButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter sounds
+                const category = this.dataset.category;
+                filterSounds(category, searchInput.value);
+            });
+        });
+        
+        searchInput.addEventListener('input', function() {
+            const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+            filterSounds(activeCategory, this.value);
+        });
+        
+        function filterSounds(category, searchTerm) {
+            let filteredSounds = sounds;
+            
+            // Filter by category
+            if (category !== 'all') {
+                filteredSounds = filteredSounds.filter(sound => sound.category === category);
+            }
+            
+            // Filter by search term
+            if (searchTerm) {
+                const term = searchTerm.toLowerCase();
+                filteredSounds = filteredSounds.filter(sound => 
+                    sound.title.toLowerCase().includes(term) || 
+                    sound.description.toLowerCase().includes(term) ||
+                    sound.category.toLowerCase().includes(term)
+                );
+            }
+            
+            // Regenerate sound cards
+            generateSoundCards(filteredSounds);
+        }
+        
+        // Initialize the page
+        generateSoundCards(sounds);
+        createBubbles();
+    </script>
 </body>
 </html>
