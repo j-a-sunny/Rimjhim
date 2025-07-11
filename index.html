@@ -1,91 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rimjhim</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./styles/main.css">
-</head>
-<body>
-    <!-- Bubbles background container -->
-    <div class="bubbles"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rimjhim - Sounds of Rural Bengal</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --primary: #2a7f62;
+        --primary-light: #3da57b;
+        --accent: #f4a261;
+        --dark: #2b2d42;
+        --light: #f8f9fa;
+        --text: #333333;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--light);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Navigation */
+      nav {
+        padding: 25px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo i {
+        font-size: 2rem;
+        color: var(--primary);
+      }
+
+      .logo h1 {
+        font-family: "Hind Siliguri", sans-serif;
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: var(--primary);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        font-family: "Hind Siliguri", sans-serif;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding: 40px 0;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .hero h2 {
+        font-family: "Hind Siliguri", sans-serif;
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        color: var(--dark);
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        color: var(--text);
+        opacity: 0.9;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: var(--primary);
+        color: white;
+        padding: 18px 45px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+        border: none;
+        cursor: pointer;
+        font-family: "Hind Siliguri", sans-serif;
+      }
+
+      .cta-button:hover {
+        background-color: var(--primary-light);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(42, 127, 98, 0.3);
+      }
+
+      .cta-button i {
+        margin-left: 8px;
+      }
+
+      /* Features */
+      .features {
+        padding: 80px 0;
+        backgroun: transparent;
+      }
+
+      .features h3 {
+        text-align: center;
+        font-family: "Hind Siliguri", sans-serif;
+        font-size: 2rem;
+        margin-bottom: 50px;
+        color: var(--dark);
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .feature-card {
+        background: var(--light);
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .feature-card i {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+
+      .feature-card h4 {
+        font-family: "Hind Siliguri", sans-serif;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--dark);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+        border-radius: 20px;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+
+      .copyright {
+        opacity: 0.8;
+        font-size: 0.9rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          gap: 20px;
+        }
+
+        .hero h2 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        nav {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .hero h2 {
+          font-size: 2rem;
+        }
+
+        .cta-button {
+          padding: 15px 30px;
+          font-size: 1rem;
+        }
+
+}
     
+</style>
+    <link rel="stylesheet" href="./styles/main.css" />
+
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <div class="logo">
-<i class="fa-solid fa-cloud-rain"></i>                <h1>Rimjhim</h1>
-            </div>
-            <button class="theme-toggle" id="themeToggle">
-                <i class="fas fa-moon"></i>
-                <span>Dark Mode</span>
-            </button>
-        </header>
-        
-        <section class="hero-banner">
-            <h1 class="hero-title">Experience the Sounds of Bengal</h1>
-            <p class="hero-subtitle">
-                Immerse yourself in the calming ambient sounds of rivers,
-rains, and nature. Mix nature's whispers with urban rhythms—craft your perfect soundscape for focus, relaxation, or sleep.</p>
-        </section>
-        
-        <div class="filter-bar">
-            <div class="filter-content">
-                <div class="search-container">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="Search sounds...">
-                </div>
-                
-                <div class="category-filter">
-                    <button class="category-btn active" data-category="all">
-                        <i class="fas fa-layer-group"></i>
-                        <span>All</span>
-                    </button>
-                    <button class="category-btn" data-category="nature">
-                        <i class="fas fa-tree"></i>
-                        <span>Nature</span>
-                    </button>
-                    <button class="category-btn" data-category="urban">
-                        <i class="fas fa-city"></i>
-                        <span>Urban</span>
-                    </button>
-                    <button class="category-btn" data-category="weather">
-                        <i class="fas fa-cloud-rain"></i>
-                        <span>Weather</span>
-                    </button>
-                    <button class="category-btn" data-category="noise">
-                        <i class="fas fa-sliders-h"></i>
-                        <span>Noise</span>
-                    </button>
-                </div>
-            </div>
+      <nav>
+        <div class="logo">
+          <i class="fa-solid fa-cloud-rain"></i>
+          <h1>Rimjhim</h1>
         </div>
-        
-        <div class="sound-grid" id="soundGrid">
-            <!-- Sound cards will be generated by JS -->
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="https://github.com/j-a-sunny/Rimjhim" target="_blank"
+            >GitHub</a
+          >
+          <a href="#request">Request Sounds</a>
         </div>
-        
-        <div class="mixer-controls">
-            <div class="mixer-header">
-                <h2 class="mixer-title"><i class="fas fa-sliders-h"></i> Sound Mixer</h2>
-                <div class="master-volume">
-                    <i class="fas fa-volume-up"></i>
-                    <input type="range" id="masterVolume" class="master-slider" min="0" max="1" step="0.01" value="0.7">
-                </div>
-            </div>
-            
-            <div id="activeSounds" class="active-sounds">
-                <div class="no-sounds-message">No sounds currently playing. Select sounds to begin mixing.</div>
-            </div>
+      </nav>
+
+      <section class="hero">
+        <div class="hero-content">
+          <h2>Experience the Soulful Sounds of Rural Bengal</h2>
+          <p>
+            Immerse yourself in the authentic ambiance of village life - from
+            monsoon rains to paddy fields, temple bells to evening choruses
+          </p>
+          <a href="rimjhim.html" class="cta-button">
+            Start Listening <i class="fas fa-headphones"></i>
+          </a>
         </div>
-        
-        <div class="footer">
-            <p>🌧️ Rimjhim | Create your perfect sound environment</p>
+      </section>
+
+      <section class="features">
+        <div class="features-grid">
+          <div class="feature-card">
+            <i class="fas fa-map-marked-alt"></i>
+            <h4>Authentic Bengal</h4>
+            <p>
+              Curated recordings from real villages across West Bengal and
+              Bangladesh
+            </p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-sliders-h"></i>
+            <h4>Custom Mixes</h4>
+            <p>Combine multiple sounds to create your perfect atmosphere</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-heart"></i>
+            <h4>Open Source</h4>
+            <p>Community-driven project welcoming contributions</p>
+          </div>
         </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-links">
+          <a href="#about">About Project</a>
+          <a href="https://github.com/j-a-sunny/Rimjhim" target="_blank"
+            >Contribute</a
+          >
+          <a href="#report">Report a Bug</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <p class="copyright">
+          Rimjhim | Preserving Bengal's Sound Heritage
+        </p>
+      </footer>
     </div>
-<script src="./scripts/main.js"></script>
-</body>
+  </body>
 </html>
