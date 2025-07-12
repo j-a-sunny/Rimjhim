@@ -8,115 +8,129 @@
 
 /* ! DO NOT TOUCH IF NOT NECESSERY */
 /* ! IF ANY VARIABLES NEED TO BE CHANGED, CONTACT OTHER MAINTAINERS/CONTRIBUTORS BEFORE CHANGING */
-        :root {
-            --primary: #7aa9b7;
-            --primary-light: #4895ef;
-            --secondary: #3f37c9;
-            --accent: #f72585;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --gray: #6c757d;
-            --light-gray: #e9ecef;
-            --card-bg: #ffffff;
-            --card-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            --border-radius: 16px;
-            --transition: all 0.3s ease;
-        }
+:root {
+    --primary: #7aa9b7;
+    --primary-light: #4895ef;
+    --secondary: #3f37c9;
+    --accent: #4a86e8;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --gray: #6c757d;
+    --light-gray: #e9ecef;
+    --card-bg: #ffffff;
+    --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    --border-radius: 16px;
+    --transition: all 0.3s ease;
+}
 
-        .dark-mode {
-            --primary: #7aa9b7;
-            --primary-light: #4895ef;
-            --secondary: #3a0ca3;
-            --light: #121212;
-            --dark: #f8f9fa;
-            --gray: #adb5bd;
-            --light-gray: #2d2d2d;
-            --card-bg: #1e1e1e;
-            --card-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
+.dark-mode {
+    --primary: #7aa9b7;
+    --primary-light: #4895ef;
+    --secondary: #3a0ca3;
+    --light: #121212;
+    --dark: #f8f9fa;
+    --gray: #adb5bd;
+    --light-gray: #2d2d2d;
+    --card-bg: #1e1e1e;
+    --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 
 
-        /* this css for body dosen't work when bubbles is added */
-        /* ! CHECK /.styles/components/bubbles.css for changing the background color */
-        body {
-            font-family: 'Poppins', sans-serif;
-            background:  linear-gradient(135deg, #e6f7ff 0%, #d0e8e6 100%);
-            color: var(--dark);
-            min-height: 100vh;
-            padding: 20px;
-            transition: var(--transition);
-            overflow-x: hidden;
-        }
+/* this css for body dosen't work when bubbles is added */
+/* ! CHECK /.styles/components/bubbles.css for changing the background color */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e6f7ff 0%, #d0e8e6 100%);
+    color: var(--dark);
+    min-height: 100vh;
+    padding: 20px;
+    transition: var(--transition);
+    overflow-x: hidden;
+}
 
-        .dark-mode body {
-            background: linear-gradient(135deg, #152a32 0%, #0b1a1f 100%);
-            color: var(--dark);
-        }
+.dark-mode body {
+    background: linear-gradient(135deg, #152a32 0%, #0b1a1f 100%);
+    color: var(--dark);
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 10;
-        }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
 
- 
-        
+
+
 
 
 /* dynamic */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .sound-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .filter-content {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .mixer-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
-            }
-            
-            .master-volume {
-                width: 100%;
-            }
-        }
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
 
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            .hero-subtitle {
-                font-size: 1rem;
-                margin-bottom: 20px;
-            }
-            
-            .sound-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            header {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
 
+    .sound-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .filter-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-container {
+        align-self: center;
+
+    }
+
+    .mixer-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .master-volume {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .search-container {
+        align-self: center;
+
+    }
+
+    .search-container input {
+        width: 100%;
+    }
+
+    .sound-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
