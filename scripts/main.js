@@ -47,114 +47,100 @@
         const sounds = [
             { 
                 id: 'birds', 
-                title: 'Singing Birds', 
+                title: 'Singing Birds <i class="fa-solid fa-dove"></i>', 
                 description: 'Gentle bird songs in a peaceful forest setting', 
                 category: 'nature',
-                duration: '3:45',
                 path: './assets/sounds/birds.ogg'
             },
             { 
                 id: 'city', 
-                title: 'City Ambience', 
+                title: 'City Ambience <i class="fa-solid fa-city"></i>', 
                 description: 'Distant traffic and urban atmosphere', 
                 category: 'urban',
-                duration: '4:20',
                 path: './assets/sounds/city.ogg'
             },
             { 
                 id: 'fireplace', 
-                title: 'Crackling Fireplace', 
+                title: 'Crackling Fireplace <i class="fa-solid fa-fire"></i>', 
                 description: 'Warm fireplace sounds for cozy evenings', 
                 category: 'nature',
-                duration: '5:10',
                 path: './assets/sounds/fireplace.ogg'
             },
             { 
                 id: 'rain', 
-                title: 'Gentle Rain', 
+                title: 'Gentle Rain <i class="fa-solid fa-cloud-rain"></i>', 
                 description: 'Soft rainfall on leaves and rooftops', 
                 category: 'weather',
-                duration: '6:15',
                 path: './assets/sounds/rain.ogg'
             },
             { 
                 id: 'stream', 
-                title: 'Mountain Stream', 
+                title: 'Mountain Stream <i class="fa-solid fa-water"></i>', 
                 description: 'Flowing water in a mountain creek', 
                 category: 'nature',
-                duration: '4:50',
                 path: './assets/sounds/stream.ogg'
             },
             { 
                 id: 'train', 
-                title: 'Train Journey', 
+                title: 'Train Journey <i class="fa-solid fa-train-subway"></i>', 
                 description: 'Rhythmic train sounds for focus', 
                 category: 'urban',
-                duration: '7:05',
                 path: './assets/sounds/train.ogg'
             },
             { 
                 id: 'white-noise', 
-                title: 'White Noise', 
+                title: 'White Noise <i class="fa-solid fa-wave-square"></i>', 
                 description: 'Neutral background sound for concentration', 
                 category: 'noise',
-                duration: '8:00',
                 path: './assets/sounds/white-noise.ogg'
             },
             { 
                 id: 'boat', 
-                title: 'Ocean Waves', 
+                title: 'Boat <i class="fa-solid fa-sailboat"></i>', 
                 description: 'Calming waves against a boat', 
                 category: 'nature',
-                duration: '5:30',
                 path: './assets/sounds/boat.ogg'
             },
             { 
                 id: 'coffee-shop', 
-                title: 'Coffee Shop', 
+                title: 'Coffee Shop <i class="fa-solid fa-mug-hot"></i>', 
                 description: 'Subtle chatter and espresso sounds', 
                 category: 'urban',
-                duration: '4:45',
                 path: './assets/sounds/coffee-shop.ogg'
             },
             { 
                 id: 'pink-noise', 
-                title: 'Pink Noise', 
+                title: 'Pink Noise <i class="fa-solid fa-wave-square"></i>', 
                 description: 'Soothing frequency for relaxation', 
                 category: 'noise',
-                duration: '6:30',
                 path: './assets/sounds/pink-noise.ogg'
             },
             { 
                 id: 'storm', 
-                title: 'Thunderstorm', 
+                title: 'Thunderstorm <i class="fa-solid fa-cloud-bolt"></i>', 
                 description: 'Powerful thunder and heavy rain', 
                 category: 'weather',
-                duration: '5:55',
                 path: './assets/sounds/storm.ogg'
             },
             { 
                 id: 'summer-night', 
-                title: 'Summer Night', 
+                title: 'Summer Night <i class="fa-solid fa-moon"></i>', 
                 description: 'Crickets and night sounds in the countryside', 
                 category: 'nature',
-                duration: '6:10',
                 path: './assets/sounds/summer-night.ogg'
             },
             { 
                 id: 'waves', 
-                title: 'Ocean Waves', 
+                title: 'Ocean Waves<i class="fa-solid fa-water"></i>', 
                 description: 'Calming waves on the beach', 
                 category: 'nature',
-                duration: '7:20',
                 path: './assets/sounds/waves.ogg'
             },
             { 
                 id: 'wind', 
-                title: 'Wind in Trees', 
+                title: 'Wind in Trees <i class="fa-solid fa-wind"></i>', 
                 description: 'Gentle breeze through forest leaves', 
                 category: 'weather',
-                duration: '4:25',
                 path: './assets/sounds/wind.ogg'
             }
         ];
