@@ -133,6 +133,7 @@
           -webkit-appearance: none;
           height: 6px;
           border-radius: 5px;
+          width: 100%;
           background: var(--gray);
           outline: none;
         }
