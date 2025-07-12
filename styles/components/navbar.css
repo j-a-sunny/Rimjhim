@@ -25,12 +25,12 @@
             flex-grow: 1;
             display: flex;
             align-items: center;
-            /* align-self: center; */
             background: var(--light-gray);
             border-radius: 30px;
             padding: 0 20px;
             max-width: 500px;
             transition: var(--transition);
+            
         }
 
         .search-container:focus-within {
