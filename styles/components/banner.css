@@ -2,9 +2,9 @@
             text-align: center;
             padding: 40px 20px;
             margin-bottom: 40px;
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            box-shadow: var(--card-shadow);
+            /* background: var(--card-bg); */
+            /* border-radius: var(--border-radius); */
+            /* box-shadow: var(--card-shadow); */
             position: relative;
             z-index: 10;
         }
