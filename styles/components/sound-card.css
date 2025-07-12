@@ -6,7 +6,7 @@
         }
 
         .sound-card {
-          background: var(--card-bg);
+          /* background: var(--card-bg); */
           border-radius: var(--border-radius);
           overflow: hidden;
           box-shadow: var(--card-shadow);
@@ -30,16 +30,16 @@
           overflow: hidden;
         }
 
-        .card-image {
+        /* .card-image {
           width: 100%;
           height: 100%;
           object-fit: cover;
           transition: transform 0.5s ease;
-        }
+        } */
 
-        .sound-card:hover .card-image {
+        /* .sound-card:hover .card-image {
           transform: scale(1.05);
-        }
+        } */
 
         .sound-category {
           position: absolute;
