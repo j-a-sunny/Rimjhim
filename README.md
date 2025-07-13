@@ -1,6 +1,5 @@
 <img src="./assets/icons/cloud-rain.png" alt="Rimjhim" align="left"/>
 
-
 # Rimjhim - Ambient Sound Mixer
 
 Rimjhim is a beautiful ambient sound mixer that allows you to create custom soundscapes using authentic sounds from rural Bengal and nature. Mix and match sounds to create your perfect environment for relaxation, focus, or sleep.
@@ -19,6 +18,11 @@ Rimjhim is a beautiful ambient sound mixer that allows you to create custom soun
 ## Live Demo
 
 [Experience Rimjhim Live](https://j-a-sunny.github.io/Rimjhim/index.html)
+
+## Website Status
+
+<img src="./assets/status/it_is_acceptable.jpeg" alt="Rimjhim" align="center"/>
+
 
 ## Installation
 
@@ -64,6 +68,7 @@ Rimjhim was inspired by and uses concepts from these excellent projects:
 
 - [Blanket](https://github.com/rafaelmardojai/blanket) - Listen to different sounds
 - [ANoise](https://github.com/costales/anoise.git) - Noise player for Ubuntu
+- [Noice](https://github.com/trynoice) - Natural calming noise
 
 Special thanks to all field recordists and sound artists who contributed to the sound library.
 
