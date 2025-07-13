@@ -23,7 +23,6 @@ Rimjhim is a beautiful ambient sound mixer that allows you to create custom soun
 
 <img src="./assets/status/it_is_acceptable.jpeg" alt="Rimjhim" align="center"/>
 
-
 ## Installation
 
 To run Rimjhim locally:
@@ -61,6 +60,15 @@ open index.html
 - 🏙️ **Urban**
 - 🌧️ **Weather**
 - 🔊 **Noise**
+
+## Todo
+
+* [ ] Save user preference in browser
+* [ ] Keep Sounds info in a separate file
+* [ ] Optimize load time
+* [ ] Add sounds that are actually from Bangladesh
+* [ ] Improve the design to be more dynamic
+* [ ] Make a desktop app with electron
 
 ## Credits
 
