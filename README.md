@@ -72,20 +72,20 @@ open index.html
 
 ## Credits
 
-Rimjhim was inspired by and uses concepts from these excellent projects:
+Rimjhim was inspired by and uses concepts and resources from these excellent projects:
 
 - [Blanket](https://github.com/rafaelmardojai/blanket) - Listen to different sounds
 - [ANoise](https://github.com/costales/anoise.git) - Noise player for Ubuntu
 - [Noice](https://github.com/trynoice) - Natural calming noise
 
-Special thanks to all field recordists and sound artists who contributed to the sound library.
+Special thanks to all field recordists and sound artists.
 
 ## Contributing
 
 We welcome contributions! Here's how you can help:
 
 1. Report bugs or suggest features by opening an issue
-2. Submit sound recordings (must be high-quality, royalty-free)
+2. Submit sound recordings (must be royalty-free)
 3. Improve documentation
 4. Submit code improvements via pull requests
 
@@ -95,7 +95,7 @@ Rimjhim is licensed under the [GNU General Public License v3.0](LICENSE).
 
 ## Support the Project
 
-If you enjoy using Rimjhim, give us a star
+If you enjoy using Rimjhim, give us a star.
 
 ---
 
