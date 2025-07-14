@@ -21,5 +21,4 @@ function createBubbles() {
   }
 }
 
-// Call on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', createBubbles);

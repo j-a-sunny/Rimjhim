@@ -41,7 +41,18 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+}
 
+input {
+    max-width: 100%;
+
+}
+
+.hidden-class {
+    display: none;
+}
 
 /* this css for body dosen't work when bubbles is added */
 /* ! CHECK /.styles/components/bubbles.css for changing the background color */
@@ -73,6 +84,15 @@ body {
 
 /* dynamic */
 @media (max-width: 768px) {
+
+    .sm-class {
+        display: none;
+    }
+
+    .lg-class {
+        display: block;
+    }
+
     .hero-title {
         font-size: 2.5rem;
     }
@@ -81,20 +101,29 @@ body {
         font-size: 1.1rem;
     }
 
+
+    .logo h1,
+    .theme-toggle span {
+        display: none;
+    }
+
+
     .sound-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 
 
     .filter-content {
-        flex-direction: column;
-        align-items: stretch;
+        /* flex-direction: column; */
+        align-items: center;
     }
 
-    .search-container {
-        align-self: center;
 
+    .theme-toggle {
+        padding: 16px 20px;
+        width: min-content;
     }
+
 
     .mixer-header {
         flex-direction: column;
@@ -108,33 +137,47 @@ body {
 }
 
 @media (max-width: 480px) {
-    .hero-title {
+
+    .sm-class {
+        display: block;
+    }
+
+    .lg-class {
+        display: none;
+    }
+
+    /* .hero-title {
         font-size: 2rem;
     }
 
     .hero-subtitle {
         font-size: 1rem;
         margin-bottom: 20px;
+    } */
+
+    .logo i {
+        font-size: 2.0rem;
+        padding-left: 8px;
+
     }
 
+
+
     .filter-bar {
-        background: none;
-        padding: 0;
-        border: none;
+        /* background: none; */
+        padding: 5px;
+        /* border: none; */
         /* removes the halo on small screens */
         border-radius: 70px;
+        box-shadow: none;
     }
 
     .search-container {
         align-self: center;
         background: var(--card-bg);
-        border: 3px solid var(--primary);
-
-
     }
 
     .search-container input {
-        width: 100%;
         font-size: 14px;
     }
 
@@ -144,6 +187,14 @@ body {
 
     .sound-grid {
         grid-template-columns: 1fr;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+
+    .audio-player {
+        border-radius: 10px;
     }
 
 

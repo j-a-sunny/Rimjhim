@@ -1,54 +1,4 @@
-// Create bubbles function
-function createBubbles() {
-  const container = document.querySelector(".bubbles");
-  const bubbleCount = 15;
 
-  for (let i = 0; i < bubbleCount; i++) {
-    const bubble = document.createElement("div");
-    bubble.classList.add("bubble");
-
-    // Randomize size and position
-    const size = Math.random() * 120 + 40;
-    bubble.style.width = `${size}px`;
-    bubble.style.height = `${size}px`;
-    bubble.style.left = `${Math.random() * 100}%`;
-    bubble.style.top = `${Math.random() * 100}%`;
-
-    // Randomize animation
-    const duration = Math.random() * 20 + 10;
-    bubble.style.animationDuration = `${duration}s`;
-
-    container.appendChild(bubble);
-  }
-}
-
-// Moves the filter-bar div up to the top when the input in search-container is clicked
-
-
-
-
-
-document.getElementById('searchInput').addEventListener('click', function() {
-  const target = document.getElementById('filterBar');
-  const targetRect = target.getBoundingClientRect();
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  const offset = window.innerHeight * 0.05; // 14% from top
-
-  // Check if the div is already within the top 20% of the viewport
-  const quarter = window.innerHeight * 0.15;
-  if (targetRect.top <= quarter && targetRect.bottom >= 0) {
-    // myDiv is already within the top 1/4th, do nothing
-    return;
-  }
-
-  // Otherwise, scroll so it's 30% from the top
-  const scrollTo = targetRect.top + scrollTop - offset;
-  window.scrollTo({ top: scrollTo, behavior: 'smooth' });
-});
-
-
-
-// end--------------------------------------------------
 
 
 // Audio context for advanced audio control
@@ -76,103 +26,140 @@ document.getElementById("masterVolume").addEventListener("input", function () {
 // !LINKS TO IMAGES IN backgroundImage IS BEST TO BE KEPT INSIDE OF BACKTICKS ``
 const sounds = [
   {
+    id: "rain",
+    icon: `<i class="fa-solid fa-cloud-rain"></i>`,
+    title: "Gentle Rain",
+    description: "Soft rainfall on leaves and rooftops",
+    category: "weather",
+    backgroundImage: `https://cdn.pixabay.com/photo/2015/06/19/20/14/water-815271_960_720.jpg`,
+    path: "./assets/sounds/rain.ogg",
+  },
+  {
+    id: "storm",
+    icon: `<i class="fa-solid fa-cloud-bolt"></i>`,
+    title: "Thunderstorm",
+    description: "Powerful thunder and heavy rain",
+    category: "weather",
+    backgroundImage: `https://cdn.pixabay.com/photo/2020/03/24/11/21/thunder-4963719_960_720.jpg`,
+    path: "./assets/sounds/storm.ogg",
+  },
+  {
+    id: "stream",
+    icon: `<i class="fa-solid fa-water"></i>`,
+    title: "Mountain Stream",
+    description: "Flowing water in a mountain creek",
+    category: "nature",
+    backgroundImage: `https://images.pexels.com/photos/15323324/pexels-photo-15323324.jpeg`,
+    path: "./assets/sounds/stream.ogg",
+  },
+  {
+    id: "waves",
+    icon: `<i class="fa-solid fa-water"></i>`,
+    title: "Ocean Waves",
+    description: "Calming waves on the beach",
+    category: "nature",
+    backgroundImage: `https://images.pexels.com/photos/31521011/pexels-photo-31521011.jpeg`,
+    path: "./assets/sounds/waves.ogg",
+  },
+  {
+    id: "boat",
+    icon: `<i class="fa-solid fa-sailboat"></i>`,
+    title: "Boat",
+    description: "Calming waves against a boat",
+    category: "nature",
+    backgroundImage: `https://images.pexels.com/photos/12261185/pexels-photo-12261185.jpeg`,
+    path: "./assets/sounds/boat.ogg",
+  },
+  {
+    id: "wind",
+    icon: `<i class="fa-solid fa-wind"></i>`,
+    title: "Wind in Trees",
+    description: "Gentle breeze through forest leaves",
+    category: "weather",
+    backgroundImage: `https://images.pexels.com/photos/14207618/pexels-photo-14207618.jpeg`,
+    path: "./assets/sounds/wind.ogg",
+  },
+  // Remaining sounds in original order
+  {
     id: "birds",
-    title: 'Singing Birds <i class="fa-solid fa-dove"></i>',
+    icon: `<i class="fa-solid fa-dove"></i>`,
+    title: "Singing Birds",
     description: "Gentle bird songs in a peaceful forest setting",
     category: "nature",
-    backgroundImage: `https://i.imgur.com/FGrACMp.jpeg`,
+    backgroundImage: `https://images.pexels.com/photos/6141616/pexels-photo-6141616.jpeg`,
     path: "./assets/sounds/birds.ogg",
   },
   {
     id: "city",
-    title: 'City Ambience <i class="fa-solid fa-city"></i>',
+    icon: `<i class="fa-solid fa-city"></i>`,
+    title: "City Ambience",
     description: "Distant traffic and urban atmosphere",
     category: "urban",
+    backgroundImage: "",
     path: "./assets/sounds/city.ogg",
   },
   {
     id: "fireplace",
-    title: 'Crackling Fireplace <i class="fa-solid fa-fire"></i>',
+    icon: `<i class="fa-solid fa-fire"></i>`,
+    title: "Crackling Fireplace",
     description: "Warm fireplace sounds for cozy evenings",
     category: "nature",
+    backgroundImage: `https://images.pexels.com/photos/167701/pexels-photo-167701.jpeg`,
     path: "./assets/sounds/fireplace.ogg",
   },
   {
-    id: "rain",
-    title: 'Gentle Rain <i class="fa-solid fa-cloud-rain"></i>',
-    description: "Soft rainfall on leaves and rooftops",
-    category: "weather",
-    path: "./assets/sounds/rain.ogg",
-  },
-  {
-    id: "stream",
-    title: 'Mountain Stream <i class="fa-solid fa-water"></i>',
-    description: "Flowing water in a mountain creek",
-    category: "nature",
-    path: "./assets/sounds/stream.ogg",
-  },
-  {
     id: "train",
-    title: 'Train Journey <i class="fa-solid fa-train-subway"></i>',
+    icon: `<i class="fa-solid fa-train-subway"></i>`,
+    title: "Train Journey",
     description: "Rhythmic train sounds for focus",
     category: "urban",
+    backgroundImage: `https://images.pexels.com/photos/5204045/pexels-photo-5204045.jpeg`,
     path: "./assets/sounds/train.ogg",
   },
   {
     id: "white-noise",
-    title: 'White Noise <i class="fa-solid fa-wave-square"></i>',
+    icon: `<i class="fa-solid fa-wave-square"></i>`,
+    title: "White Noise",
     description: "Neutral background sound for concentration",
     category: "noise",
+    backgroundImage: "",
     path: "./assets/sounds/white-noise.ogg",
   },
   {
-    id: "boat",
-    title: 'Boat <i class="fa-solid fa-sailboat"></i>',
-    description: "Calming waves against a boat",
-    category: "nature",
-    path: "./assets/sounds/boat.ogg",
-  },
-  {
-    id: "coffee-shop",
-    title: 'Coffee Shop <i class="fa-solid fa-mug-hot"></i>',
-    description: "Subtle chatter and espresso sounds",
+    id: "tea-stall",
+    icon: `<i class="fa-solid fa-mug-hot"></i>`,
+    title: "Tea Stall",
+    description: "Subtle chatter and kettle sounds",
     category: "urban",
+    backgroundImage: `https://images.unsplash.com/photo-1723127024366-58d9272b95a1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`,
     path: "./assets/sounds/coffee-shop.ogg",
   },
   {
     id: "pink-noise",
-    title: 'Pink Noise <i class="fa-solid fa-wave-square"></i>',
+    icon: `<i class="fa-solid fa-wave-square"></i>`,
+    title: "Pink Noise",
     description: "Soothing frequency for relaxation",
     category: "noise",
+    backgroundImage: "",
     path: "./assets/sounds/pink-noise.ogg",
   },
   {
-    id: "storm",
-    title: 'Thunderstorm <i class="fa-solid fa-cloud-bolt"></i>',
-    description: "Powerful thunder and heavy rain",
-    category: "weather",
-    path: "./assets/sounds/storm.ogg",
-  },
-  {
     id: "summer-night",
-    title: 'Summer Night <i class="fa-solid fa-moon"></i>',
+    icon: `<i class="fa-solid fa-moon"></i>`,
+    title: "Summer Night",
     description: "Crickets and night sounds in the countryside",
     category: "nature",
+    backgroundImage: `https://images.unsplash.com/photo-1617872503735-8d9e7e703f9f?q=80&w=741&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`,
     path: "./assets/sounds/summer-night.ogg",
   },
   {
-    id: "waves",
-    title: 'Ocean Waves<i class="fa-solid fa-water"></i>',
-    description: "Calming waves on the beach",
+    id: "bicycle",
+    icon: `<i class="fa-solid fa-moon"></i>`,
+    title: "Bicycle",
+    description: "Crickets and night sounds in the countryside",
     category: "nature",
-    path: "./assets/sounds/waves.ogg",
-  },
-  {
-    id: "wind",
-    title: 'Wind in Trees <i class="fa-solid fa-wind"></i>',
-    description: "Gentle breeze through forest leaves",
-    category: "weather",
-    path: "./assets/sounds/wind.ogg",
+    backgroundImage: `https://images.pexels.com/photos/31911503/pexels-photo-31911503.jpeg`,
+    path: "./assets/sounds/summer-night.ogg",
   },
 ];
 
@@ -202,7 +189,8 @@ function generateSoundCards(soundList) {
                     background-position:center;
                     background-repeat: no-repeat;
 ">
-                        <h3 class="sound-title">${sound.title}</h3>
+                
+<h3 class="sound-title">${sound.title}</h3>
                         <p class="sound-description">${sound.description}</p>
                         <div class="audio-player">
                             <button class="play-btn" data-sound="${sound.id}">

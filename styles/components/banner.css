@@ -19,7 +19,7 @@
             font-size: 3.2rem;
             margin-bottom: 20px;
             font-family: 'Montserrat', sans-serif;
-            color: var(--dark);
+            /* color: var(--dark); */
             background: linear-gradient(90deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;

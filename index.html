@@ -46,7 +46,6 @@
         align-items: center;
       }
 
-
       .nav-links {
         display: flex;
         gap: 30px;
@@ -184,7 +183,7 @@
 
       .footer-links a {
         color: white;
-        width:fit-content;
+        width: fit-content;
         text-decoration: none;
         transition: all 0.3s ease;
       }
@@ -231,12 +230,9 @@
           padding: 15px 30px;
           font-size: 1rem;
         }
-
-}
-    
-</style>
+      }
+    </style>
     <link rel="stylesheet" href="./styles/main.css" />
-
   </head>
   <body>
     <div class="container">
@@ -246,19 +242,24 @@
           <h1>Rimjhim</h1>
         </div>
         <div class="nav-links">
-          <a href="#about">About</a>
           <a href="https://github.com/j-a-sunny/Rimjhim" target="_blank"
             >GitHub</a
           >
-          <a href="#request">Request Sounds</a>
+          <a class="lg-class" href="https://github.com/j-a-sunny/Rimjhim/issues/new"
+            >Request a Sounds or Report an issue</a
+          >
+          <a class="sm-class hidden-class" href="https://github.com/j-a-sunny/Rimjhim/issues/new"
+            >Request/Report</a
+          >
         </div>
       </nav>
-      
+
       <section class="hero">
         <div class="hero-content">
           <h2>প্রকৃতির সুরে শান্তি</h2>
           <p>
-            Immerse yourself in the calming sounds of Bengal's nature. Perfect for meditation, focus, and relaxation.
+            Immerse yourself in the calming sounds of Bengal's nature. Perfect
+            for meditation, focus, and relaxation.
           </p>
           <a href="rimjhim.html" class="cta-button">
             Start Listening <i class="fas fa-headphones"></i>
@@ -271,9 +272,7 @@
           <div class="feature-card">
             <i class="fas fa-map-marked-alt"></i>
             <h4>Authentic Bengal</h4>
-            <p>
-              Curated recordings from real villages across Bangladesh
-            </p>
+            <p>Curated recordings from real villages across Bangladesh</p>
           </div>
           <div class="feature-card">
             <i class="fas fa-sliders-h"></i>
@@ -297,9 +296,7 @@
           <a href="#report">Report a Bug</a>
           <a href="#contact">Contact</a>
         </div>
-        <p class="copyright">
-          Rimjhim | Preserving Bengal's Sound Heritage
-        </p>
+        <p class="copyright">Rimjhim | Preserving Bengal's Sound Heritage</p>
       </footer>
     </div>
   </body>

@@ -14,23 +14,45 @@
 
         .filter-content {
             display: flex;
-            flex-wrap: wrap;
             gap: 20px;
-            justify-content: center;
+            justify-content:center;
             align-items: center;
-            
+
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo i {
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
+
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 2.2rem;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .search-container {
             flex-grow: 1;
             display: flex;
             align-items: center;
+            align-self:center;
             background: var(--light-gray);
             border-radius: 30px;
             padding: 0 20px;
-            max-width: 500px;
+            min-width: 50%;
+            max-width: fit-content;
             transition: var(--transition);
-            
+
         }
 
         .search-container:focus-within {
@@ -53,7 +75,32 @@
             font-size: 18px;
         }
 
+        .theme-toggle {
+            background: var(--dark);
+            border: none;
+            border-radius: 30px;
+            padding: 12px 24px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: var(--card-shadow);
+            color: var(--light-gray);
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
         .category-filter {
+            display: none;
+        }
+
+        /* .category-filter {
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
@@ -84,4 +131,4 @@
 
         .category-btn i {
             font-size: 1.1rem;
-        }
+        } */
