@@ -1,6 +1,3 @@
-
-
-
 // Audio context for advanced audio control
 let audioContext;
 try {
@@ -46,7 +43,7 @@ const sounds = [
   {
     id: "stream",
     icon: `<i class="fa-solid fa-water"></i>`,
-    title: "Mountain Stream",
+    title: "Stream",
     description: "Flowing water in a mountain creek",
     category: "nature",
     backgroundImage: `https://images.pexels.com/photos/15323324/pexels-photo-15323324.jpeg`,
@@ -58,26 +55,27 @@ const sounds = [
     title: "Ocean Waves",
     description: "Calming waves on the beach",
     category: "nature",
-    backgroundImage: `https://images.pexels.com/photos/31521011/pexels-photo-31521011.jpeg`,
+    backgroundImage: ``,
     path: "./assets/sounds/waves.ogg",
   },
+    {
+    id: "wind",
+    icon: `<i class="fa-solid fa-wind"></i>`,
+    title: "Wind in Trees",
+    description: "Gentle breeze through forest leaves",
+    category: "weather",
+    backgroundImage: ``,
+    path: "./assets/sounds/wind.ogg",
+  },
+
   {
     id: "boat",
     icon: `<i class="fa-solid fa-sailboat"></i>`,
     title: "Boat",
     description: "Calming waves against a boat",
     category: "nature",
-    backgroundImage: `https://images.pexels.com/photos/12261185/pexels-photo-12261185.jpeg`,
+    backgroundImage: ``,
     path: "./assets/sounds/boat.ogg",
-  },
-  {
-    id: "wind",
-    icon: `<i class="fa-solid fa-wind"></i>`,
-    title: "Wind in Trees",
-    description: "Gentle breeze through forest leaves",
-    category: "weather",
-    backgroundImage: `https://images.pexels.com/photos/14207618/pexels-photo-14207618.jpeg`,
-    path: "./assets/sounds/wind.ogg",
   },
   // Remaining sounds in original order
   {
@@ -86,7 +84,7 @@ const sounds = [
     title: "Singing Birds",
     description: "Gentle bird songs in a peaceful forest setting",
     category: "nature",
-    backgroundImage: `https://images.pexels.com/photos/6141616/pexels-photo-6141616.jpeg`,
+    backgroundImage: ``,
     path: "./assets/sounds/birds.ogg",
   },
   {
@@ -95,7 +93,7 @@ const sounds = [
     title: "City Ambience",
     description: "Distant traffic and urban atmosphere",
     category: "urban",
-    backgroundImage: "",
+    backgroundImage: ``,
     path: "./assets/sounds/city.ogg",
   },
   {
@@ -104,7 +102,7 @@ const sounds = [
     title: "Crackling Fireplace",
     description: "Warm fireplace sounds for cozy evenings",
     category: "nature",
-    backgroundImage: `https://images.pexels.com/photos/167701/pexels-photo-167701.jpeg`,
+    backgroundImage: ``,
     path: "./assets/sounds/fireplace.ogg",
   },
   {
@@ -113,7 +111,7 @@ const sounds = [
     title: "Train Journey",
     description: "Rhythmic train sounds for focus",
     category: "urban",
-    backgroundImage: `https://images.pexels.com/photos/5204045/pexels-photo-5204045.jpeg`,
+    backgroundImage: ``,
     path: "./assets/sounds/train.ogg",
   },
   {
@@ -156,7 +154,7 @@ const sounds = [
     id: "bicycle",
     icon: `<i class="fa-solid fa-moon"></i>`,
     title: "Bicycle",
-    description: "Crickets and night sounds in the countryside",
+    description: "Sound of a bicycle bell",
     category: "nature",
     backgroundImage: `https://images.pexels.com/photos/31911503/pexels-photo-31911503.jpeg`,
     path: "./assets/sounds/summer-night.ogg",
@@ -182,34 +180,40 @@ function generateSoundCards(soundList) {
     card.className = `sound-card ${isActive}`;
     card.dataset.category = sound.category;
 
-    card.innerHTML = `
-                    <div class="card-body" style="
-                    background-image:url('${sound.backgroundImage}');
-                    background-size: cover;
-                    background-position:center;
-                    background-repeat: no-repeat;
-">
-                
-<h3 class="sound-title">${sound.title}</h3>
-                        <p class="sound-description">${sound.description}</p>
-                        <div class="audio-player">
-                            <button class="play-btn" data-sound="${sound.id}">
-                                <i class="fas ${playIcon}"></i>
-                            </button>
-                            <div class="volume-control">
-                                <i class="fas fa-volume-up"></i>
-                                <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="${
-                                  activeSounds[sound.id]
-                                    ? activeSounds[sound.id].volume
-                                    : "0.7"
-                                }" data-sound="${sound.id}">
-                            </div>
-                        </div>
-                    </div>
-                `;
+    card.innerHTML = `<div class="card-body" style="position: relative">
+        <div>
+          <div class="card-head">
+            <div class="icon-title">
+              ${sound.icon}
+              <h3 class="sound-title">${sound.title}</h3>
+            </div>
+            <div class="info-icon">
+              <i
+                class="bx bx-info-circle modal-activator"
+                data-sound-id="${sound.id}"
+              ></i>
+            </div>
+          </div>
+        </div>
+        <div class="audio-player">
+          <button class="play-btn" data-sound="${sound.id}">
+            <i class="fas ${playIcon}"></i>
+          </button>
+          <div class="volume-control">
+            <i class="fas fa-volume-up"></i>
+            <input type="range" class="volume-slider" min="0" max="1" step="0.1"
+            value="${ activeSounds[sound.id] ? activeSounds[sound.id].volume :
+            "0.7" }" data-sound="${sound.id}">
+          </div>
+        </div>
+      </div>`;
 
     soundGrid.appendChild(card);
   });
+
+
+
+
 
   // Add event listeners to play buttons
   document.querySelectorAll(".play-btn").forEach((btn) => {
@@ -409,3 +413,4 @@ function filterSounds(category, searchTerm) {
 // Initialize the page
 generateSoundCards(sounds);
 createBubbles();
+

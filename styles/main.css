@@ -17,7 +17,7 @@
     --dark: #212529;
     --gray: #6c757d;
     --light-gray: #e9ecef;
-    --card-bg: #ffffff;
+    --card-bg: hsla(0, 0%, 100%, 0.4);
     --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     --border-radius: 16px;
     --transition: all 0.3s ease;
@@ -31,7 +31,7 @@
     --dark: #f8f9fa;
     --gray: #adb5bd;
     --light-gray: #2d2d2d;
-    --card-bg: #1e1e1e;
+    --card-bg: hsla(0, 0%, 12%, 0.4);
     --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -112,6 +112,10 @@ body {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 
+        .card-body {
+        padding: 15px;
+    }
+
 
     .filter-content {
         /* flex-direction: column; */
@@ -174,7 +178,7 @@ body {
 
     .search-container {
         align-self: center;
-        background: var(--card-bg);
+        background:none;
     }
 
     .search-container input {

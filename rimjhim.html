@@ -14,6 +14,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./styles/components/modal.css">
     <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body>
@@ -40,6 +42,9 @@ rains, and nature. Mix nature's whispers with urban rhythms—craft your perfect
 
 </div>
         </section> -->
+
+
+        
 
       <div class="filter-bar" id="filterBar">
         <div class="filter-content">
@@ -122,8 +127,27 @@ rains, and nature. Mix nature's whispers with urban rhythms—craft your perfect
         <p>🌧️ Rimjhim | Create your perfect sound environment</p>
       </div>
     </div>
+
+    <!-- Modal Structure -->
+<div id="soundModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <div class="modal-header">
+      <h2 id="modalSoundTitle"></h2>
+    </div>
+    <div class="modal-body">
+      <p id="modalSoundDescription"></p>
+      <div class="sound-meta">
+        <span><i class="fas fa-tag"></i> <span id="modalSoundCategory"></span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
     <script src="./scripts/main.js"></script>
     <script src="./scripts/components/autoScroll.js"></script>
     <script src="./scripts/components/bubbles.js"></script>
+    <script src="./scripts/components/modal.js"></script>
   </body>
 </html>
