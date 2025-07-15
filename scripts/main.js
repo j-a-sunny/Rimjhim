@@ -42,7 +42,7 @@ const sounds = [
   },
   {
     id: "stream",
-    icon: `<i class="fa-solid fa-water"></i>`,
+    icon: `<i style="transform: rotate(-90deg);" class="fa-solid fa-water"></i>`,
     title: "Stream",
     description: "Flowing water in a mountain creek",
     category: "nature",
@@ -51,7 +51,7 @@ const sounds = [
   },
   {
     id: "waves",
-    icon: `<i class="fa-solid fa-water"></i>`,
+    icon: `<i class='bx  bx-horizon-sea'></i> `,
     title: "Ocean Waves",
     description: "Calming waves on the beach",
     category: "nature",
