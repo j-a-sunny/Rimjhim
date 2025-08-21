@@ -17,7 +17,11 @@ Rimjhim is a beautiful ambient sound mixer that allows you to create custom soun
 
 ## Live Demo
 
-[Experience Rimjhim Live](https://j-a-sunny.github.io/Rimjhim/index.html)
+Experience Rimjhim Live
+
+[Github](https://j-a-sunny.github.io/Rimjhim/index.html)
+
+[Vercel](https://rimjhim-one.vercel.app/)
 
 ## Website Status
 
