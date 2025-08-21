@@ -68,10 +68,10 @@ open index.html
 ## Todo
 
 * [ ] Save user preference in browser
-* [ ] Keep Sounds info in a separate file
+* [X] Keep Sounds info in a separate file
 * [ ] Optimize load time
 * [ ] Add sounds that are actually from Bangladesh
-* [ ] Improve the design to be more dynamic
+* [X] Improve the design to be more dynamic
 * [ ] Make a desktop app with electron
 
 ## Credits
